@@ -3,120 +3,120 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Giới Thiệu Bản Thân</title>
+
+    <title>Trang Chủ</title>
 
     <style>
-        body{
+        *{
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
             font-family: Arial, sans-serif;
-            background: linear-gradient(to right, #919acc);
+        }
+
+        body{
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            background: linear-gradient(135deg, #4facfe, #00f2fe);
         }
 
         .container{
-            width: 450px;
-            margin: 40px auto;
-            background-color: rgb(255, 255, 255);
-            padding: 30px;
-            border-radius: 15px;
+            width: 90%;
+            max-width: 900px;
             text-align: center;
-            box-shadow: 0 0 15px rgba(0,0,0,0.2);
-        }
-
-        .avatar{
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            border: 4px solid #3498db;
-            object-fit: cover;
-            margin-bottom: 20px;
+            background: rgba(255,255,255,0.15);
+            backdrop-filter: blur(10px);
+            padding: 50px;
+            border-radius: 25px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
         }
 
         h1{
-            color: #2c3e50;
+            color: white;
+            margin-bottom: 15px;
+            font-size: 45px;
         }
 
         p{
+            color: white;
+            margin-bottom: 40px;
             font-size: 18px;
-            color: #555;
-            text-align: left;
+        }
+
+        .menu{
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            flex-wrap: wrap;
         }
 
         .btn{
-            margin-top: 20px;
-            padding: 12px 20px;
-            border: none;
-            background-color: #3498db;
+            text-decoration: none;
             color: white;
-            font-size: 16px;
-            border-radius: 8px;
-            cursor: pointer;
+            background: rgba(255,255,255,0.2);
+            padding: 18px 35px;
+            border-radius: 15px;
+            font-size: 20px;
+            font-weight: bold;
+            transition: 0.3s;
+            border: 2px solid white;
         }
 
         .btn:hover{
-            background-color: #2980b9;
+            background: white;
+            color: #0077ff;
+            transform: translateY(-5px);
         }
 
-        #skills{
-            display: none;
-            margin-top: 20px;
-            text-align: left;
-            background-color: #f2f2f2;
-            padding: 15px;
-            border-radius: 10px;
+        footer{
+            margin-top: 40px;
+            color: white;
+            font-size: 15px;
         }
+
     </style>
 </head>
 <body>
 
     <div class="container">
 
-        <!-- Ảnh đại diện -->
-         <img src="c:\Users\Admin\Downloads\10e3a1c8d2c2539c0ad3.jpg" alt="Ảnh đại diện" class="avatar">
+        <h1>TRANG CHỦ</h1>
 
+        <p>
+            Chào mừng đến với website cá nhân của tôi
+        </p>
 
-        <!-- Thông tin cá nhân -->
-        <h1>PHAN ĐỨC HOÀNG</h1>
+        <div class="menu">
 
-        <p><b>Ngày sinh:</b> 25/08/2006</p>
+            <a class="btn"
+               href="https://pben2k6-hash.github.io/thoithieu.html/"
+               target="_blank">
+               Giới Thiệu
+            </a>
 
-        <p><b>Mã lớp:</b> DA25TTC</p>
+            <a class="btn"
+               href="https://pben2k6-hash.github.io/110125062baitho.github.io/"
+               target="_blank">
+               Bài Thơ
+            </a>
 
-        <p><b>Địa chỉ:</b> BẾN TRE </p>
+            <a class="btn"
+               href="http://PhanDucHoang.infinityfreeapp.com"
+               target="_blank">
+               Âm Nhạc
+            </a>
 
-        <!-- Nút hiện kỹ năng -->
-        <button class="btn" onclick="showSkills()">
-            Xem Kỹ Năng
-        </button>
-
-        <!-- Nội dung kỹ năng -->
-        <div id="skills">
-            <h3>Kỹ năng của tôi</h3>
-
-            <ul>
-                <li>Lập trình C</li>
-                <li>Thiết kế Web HTML/CSS</li>
-                <li>Sử dụng Bootstrap</li>
-                <li>Làm việc nhóm</li>
-                <li>Thuyết trình</li>
-            </ul>
         </div>
+
+        <footer>
+            © 2026 - Website cá nhân
+        </footer>
 
     </div>
 
-    <script>
-        function showSkills() {
-
-            var skills = document.getElementById("skills");
-
-            if(skills.style.display === "none"){
-                skills.style.display = "block";
-            }
-            else{
-                skills.style.display = "none";
-            }
-        }
-    </script>
-
 </body>
 </html>
+        
