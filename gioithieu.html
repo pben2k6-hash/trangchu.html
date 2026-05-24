@@ -1,34 +1,169 @@
-<!DOCTYPE HTML>
-<html>
+<!DOCTYPE html>
+<html lang="vi">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giới Thiệu Bản Thân</title>
+
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #919acc);
+        }
+
+        .container{
+            width: 450px;
+            margin: 40px auto;
+            background-color: rgb(255, 255, 255);
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 0 15px rgba(0,0,0,0.2);
+        }
+
+        /* Ảnh nền phía trên */
+        .banner{
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 15px;
+            margin-bottom: 20px;
+        }
+
+        .avatar{
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 4px solid #3498db;
+            object-fit: cover;
+            margin-bottom: 20px;
+        }
+
+        h1{
+            color: #2c3e50;
+        }
+
+        p{
+            font-size: 18px;
+            color: #555;
+            text-align: left;
+        }
+
+        .btn{
+            margin-top: 20px;
+            padding: 12px 20px;
+            border: none;
+            background-color: #3498db;
+            color: white;
+            font-size: 16px;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        .btn:hover{
+            background-color: #2980b9;
+        }
+
+        #skills{
+            display: none;
+            margin-top: 20px;
+            text-align: left;
+            background-color: #f2f2f2;
+            padding: 15px;
+            border-radius: 10px;
+        }
+
+        #contact{
+            display: none;
+            margin-top: 20px;
+            text-align: center;
+            background-color: #f2f2f2;
+            padding: 15px;
+            border-radius: 10px;
+            font-size: 18px;
+        }
+    </style>
 </head>
 <body>
-  <h1>HEADING 1</h1>
-  <h2>HEADING 2</h2>
-  <h3>HEADING 3</h3>
-  <h4>HEADING 4</h4>
-  <h5>HEADING 5</h5>
-  <h6>HEADING 6</h6>
 
-  <hr style="width: 50%; background-color: red; border: 2px solid red; margin-left: auto;">
-  <hr style="width: 70%; background-color: blue; border: 5px solid blue; margin-left: auto;">
-<hr>
-  <p style="text-align: center;">Trên đây là dòng kẻ ngang</p>
+    <div class="container">
 
-  <h2 style="text-align: center; color: red;"><b>Thơ ngắn 2 câu</b></h2>
+        <!-- Hình nền phía trên -->
+        <img src="banner.jpg" alt="Ảnh nền" class="banner">
 
-  <pre>
- Biển cứ cậy mình dài rộng thế.
- Vắng cánh buồm chỉ một chút đã cô đơn.
+        <!-- Ảnh đại diện -->
+        <img src="avatar.jpg" alt="Ảnh đại diện" class="avatar">
 
- Chút nắng vàng sao làm nên mùa hạ.
- Chút tình xa lạ sao giữ được người ta.
-  </pre>
+        <!-- Thông tin cá nhân -->
+        <h1>PHAN ĐỨC HOÀNG</h1>
 
-  <p>
-    Có khi nào trên đường đời tấp nập.<br> 
-    Ta vô tình đi lướt qua nhau.
-  </p>
+        <p><b>Ngày sinh:</b> 25/08/2006</p>
+
+        <p><b>Mã lớp:</b> DA25TTC</p>
+
+        <p><b>Địa chỉ:</b> BẾN TRE</p>
+
+        <!-- Nút hiện kỹ năng -->
+        <button class="btn" onclick="showSkills()">
+            Xem Kỹ Năng
+        </button>
+
+        <!-- Nút liên hệ -->
+        <br>
+
+        <button class="btn" onclick="showContact()">
+            Liên Hệ
+        </button>
+
+        <!-- Nội dung kỹ năng -->
+        <div id="skills">
+            <h3>Kỹ năng của tôi</h3>
+
+            <ul>
+                <li>Lập trình C</li>
+<li>Thiết kế Web HTML/CSS</li>
+                <li>Sử dụng Bootstrap</li>
+                <li>Làm việc nhóm</li>
+                <li>Thuyết trình</li>
+            </ul>
+        </div>
+
+        <!-- Nội dung liên hệ -->
+        <div id="contact">
+            <b>Zalo:</b> 0339642390
+        </div>
+
+    </div>
+
+    <script>
+
+        function showSkills() {
+
+            var skills = document.getElementById("skills");
+
+            if(skills.style.display === "none"){
+                skills.style.display = "block";
+            }
+            else{
+                skills.style.display = "none";
+            }
+        }
+
+        function showContact() {
+
+            var contact = document.getElementById("contact");
+
+            if(contact.style.display === "none"){
+                contact.style.display = "block";
+            }
+            else{
+                contact.style.display = "none";
+            }
+        }
+
+    </script>
 
 </body>
 </html>
