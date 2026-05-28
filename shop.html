@@ -144,6 +144,23 @@
             font-weight: bold;
         }
 
+        .old-price{
+    color: #777;
+    text-decoration: line-through;
+    font-size: 16px;
+    margin-top: 5px;
+}
+
+.discount{
+    background: red;
+    color: white;
+    padding: 3px 8px;
+    border-radius: 5px;
+    font-size: 13px;
+    display: inline-block;
+    margin-top: 5px;
+}
+
         .btn{
             margin-top: 10px;
             display: inline-block;
@@ -284,9 +301,18 @@
     <div class="product">
         <img src="imagessamsung.jpg">
         <h3>Samsung Galaxy A07</h3>
-        <div class="price" data-price="3990000">
-            3.990.000đ
-        </div>
+
+<div class="old-price">
+    5.990.000đ
+</div>
+
+<div class="price" data-price="3990000">
+    3.990.000đ
+</div>
+
+<div class="discount">
+    Giảm 33%
+</div>
         <button class="btn add-cart">
             Mua ngay
         </button>
