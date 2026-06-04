@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Thống kê kết quả đánh giá</title>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+body{
+    display:flex;
+    background:#f5f6fa;
+}
+
+/* Sidebar */
+.sidebar{
+    width:250px;
+    min-height:100vh;
+    background:#1e293b;
+    color:white;
+}
+
+.logo{
+    padding:20px;
+    font-size:22px;
+    font-weight:bold;
+    text-align:center;
+    border-bottom:1px solid rgba(255,255,255,.2);
+}
+
+.menu{
+    padding:15px;
+}
+
+.menu a{
+    display:block;
+    color:white;
+    text-decoration:none;
+    padding:12px;
+    margin-bottom:8px;
+    border-radius:6px;
+}
+
+.menu a:hover,
+.menu .active{
+    background:#2563eb;
+}
+
+/* Main */
+.main{
+    flex:1;
+    padding:20px;
+}
+
+.title{
+    font-size:32px;
+    margin-bottom:20px;
+    color:#333;
+}
+
+/* Search */
+.search-box{
+    background:white;
+    padding:20px;
+    border-radius:10px;
+    box-shadow:0 2px 5px rgba(0,0,0,.1);
+    margin-bottom:20px;
+}
+
+.form-row{
+    display:flex;
+    gap:15px;
+    flex-wrap:wrap;
+}
+
+.form-group{
+    flex:1;
+    min-width:200px;
+}
+
+label{
+    display:block;
+    margin-bottom:5px;
+    font-weight:bold;
+}
+
+select{
+    width:100%;
+    padding:10px;
+    border:1px solid #ccc;
+    border-radius:5px;
+}
+
+.btn{
+    margin-top:24px;
+    background:#2563eb;
+    color:white;
+    border:none;
+    padding:10px 20px;
+    border-radius:5px;
+    cursor:pointer;
+}
+
+.btn:hover{
+    background:#1d4ed8;
+}
+
+/* Content */
+.content{
+    display:flex;
+    gap:20px;
+    flex-wrap:wrap;
+}
+
+.table-box{
+    flex:2;
+    min-width:700px;
+    background:white;
+    padding:20px;
+    border-radius:10px;
+    box-shadow:0 2px 5px rgba(0,0,0,.1);
+}
+
+.chart-box{
+    flex:1;
+    min-width:300px;
+    background:white;
+    padding:20px;
+    border-radius:10px;
+    box-shadow:0 2px 5px rgba(0,0,0,.1);
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+}
+
+table th,
+table td{
+    border:1px solid #ddd;
+    padding:10px;
+    text-align:left;
+}
+
+table th{
+    background:#f1f5f9;
+}
+
+.badge{
+    padding:4px 8px;
+    border-radius:4px;
+    color:white;
+    font-size:13px;
+}
+
+.xs{background:#22c55e;}
+.tot{background:#2563eb;}
+.kha{background:#06b6d4;}
+.tb{background:#64748b;}
+.kem{background:#ef4444;}
+
+.legend{
+    margin-top:20px;
+}
+
+.legend p{
+    margin:8px 0;
+}
+</style>
+</head>
+<body>
+
+<div class="sidebar">
+    <div class="logo">
+        ĐIỂM RÈN LUYỆN
+    </div>
+
+    <div class="menu">
+        <a href="#">Hướng dẫn sử dụng</a>
+        <a href="#">Danh sách kết quả</a>
+        <a href="#" class="active">Thống kê lớp</a>
+    </div>
+</div>
+
+<div class="main">
+
+    <div class="title">
+        Thống kê kết quả đánh giá
+    </div>
+
+    <div class="search-box">
+        <div class="form-row">
+
+            <div class="form-group">
+                <label>Học kỳ</label>
+                <select>
+                    <option>HK1-2025-2026</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>Lớp</label>
+                <select>
+                    <option>DA25TTD - CNTT D 2025</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>Xếp loại</label>
+                <select>
+                    <option>Tất cả</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>Vai trò</label>
+                <select>
+                    <option>Hội đồng đánh giá</option>
+                </select>
+            </div>
+
+            <button class="btn">Tìm kiếm</button>
+
+        </div>
+    </div>
+
+    <div class="content">
+
+        <div class="table-box">
+            <h3>Danh sách Sinh viên</h3>
+            <br>
+
+            <table>
+                <tr>
+                    <th>STT</th>
+                    <th>MSSV</th>
+                    <th>Họ và tên</th>
+                    <th>Số điểm</th>
+                    <th>Xếp loại</th>
+                </tr>
+
+                <tr>
+                    <td>1</td>
+                    <td>110125233</td>
+                    <td>Võ Nguyễn Thiên Kim</td>
+                    <td>92</td>
+                    <td><span class="badge xs">Xuất sắc</span></td>
+                </tr>
+
+                <tr>
+                    <td>2</td>
+                    <td>110125246</td>
+                    <td>Phan Chí Linh</td>
+                    <td>84</td>
+                    <td><span class="badge tot">Tốt</span></td>
+                </tr>
+
+                <tr>
+                    <td>3</td>
+                    <td>110125234</td>
+                    <td>Dương Tấn Khải</td>
+                    <td>75</td>
+                    <td><span class="badge kha">Khá</span></td>
+                </tr>
+
+                <tr>
+                    <td>4</td>
+                    <td>110125066</td>
+                    <td>Dương Gia Huy</td>
+                    <td>55</td>
+                    <td><span class="badge tb">Trung bình</span></td>
+                </tr>
+
+                <tr>
+                    <td>5</td>
+                    <td>110125202</td>
+                    <td>Đào Ngọc Thanh Tuyền</td>
+                    <td>20</td>
+                    <td><span class="badge kem">Kém</span></td>
+                </tr>
+
+            </table>
+        </div>
+
+        <div class="chart-box">
+            <h3>Tỉ lệ điểm rèn luyện</h3>
+
+            <canvas id="myChart"></canvas>
+
+            <div class="legend">
+                <p>🟢 Xuất sắc: 4.5%</p>
+                <p>🔵 Tốt: 22.7%</p>
+                <p>🔷 Khá: 38.6%</p>
+                <p>⚫ Trung bình: 22.7%</p>
+                <p>🔴 Kém: 11.5%</p>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+<script>
+const ctx = document.getElementById('myChart');
+
+new Chart(ctx,{
+    type:'doughnut',
+    data:{
+        labels:[
+            'Xuất sắc',
+            'Tốt',
+            'Khá',
+            'Trung bình',
+            'Kém'
+        ],
+        datasets:[{
+            data:[4.5,22.7,38.6,22.7,11.5],
+            backgroundColor:[
+                '#22c55e',
+                '#2563eb',
+                '#06b6d4',
+                '#64748b',
+                '#ef4444'
+            ]
+        }]
+    }
+});
+</script>
+
+</body>
+</html>
