@@ -309,6 +309,42 @@ table th{
 </div>
 
 <script>
+const rows = document.querySelectorAll("table tr");
+
+let xs = 0;
+let tot = 0;
+let kha = 0;
+let tb = 0;
+let kem = 0;
+
+// Bỏ qua dòng tiêu đề
+for(let i = 1; i < rows.length; i++){
+    const loai = rows[i].cells[4].innerText.trim();
+
+    if(loai.includes("Xuất sắc")) xs++;
+    else if(loai.includes("Tốt")) tot++;
+    else if(loai.includes("Khá")) kha++;
+    else if(loai.includes("Trung bình")) tb++;
+    else if(loai.includes("Kém")) kem++;
+}
+
+const tong = xs + tot + kha + tb + kem;
+
+const tyleXS = ((xs/tong)*100).toFixed(1);
+const tyleTot = ((tot/tong)*100).toFixed(1);
+const tyleKha = ((kha/tong)*100).toFixed(1);
+const tyleTB = ((tb/tong)*100).toFixed(1);
+const tyleKem = ((kem/tong)*100).toFixed(1);
+
+// Cập nhật chú thích
+document.querySelector(".legend").innerHTML = `
+<p>🟢 Xuất sắc: ${tyleXS}%</p>
+<p>🔵 Tốt: ${tyleTot}%</p>
+<p>🔷 Khá: ${tyleKha}%</p>
+<p>⚫ Trung bình: ${tyleTB}%</p>
+<p>🔴 Kém: ${tyleKem}%</p>
+`;
+
 const ctx = document.getElementById('myChart');
 
 new Chart(ctx,{
@@ -322,7 +358,7 @@ new Chart(ctx,{
             'Kém'
         ],
         datasets:[{
-            data:[4.5,22.7,38.6,22.7,11.5],
+            data:[xs, tot, kha, tb, kem],
             backgroundColor:[
                 '#22c55e',
                 '#2563eb',
@@ -331,6 +367,9 @@ new Chart(ctx,{
                 '#ef4444'
             ]
         }]
+    },
+    options:{
+        responsive:true
     }
 });
 </script>
